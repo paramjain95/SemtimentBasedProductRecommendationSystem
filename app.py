@@ -9,8 +9,8 @@ def home():
     user=""
     if request.method == 'POST':
         user = request.form["userid"]
-        if user.lower() in get_all_username():
-            data=recommend_product(user.lower())
+        if user in get_all_username():
+            data=recommend_product(user)
     return render_template("index.html", len=len(data),products=data, user=user,flag=False)
 
 
