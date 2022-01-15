@@ -163,7 +163,10 @@
   
 		</table>
 		{%else %}
-		<h2>Please enter the username to show top 5 products</h2>
+            {%if (flag1==False)%}
+		    <h2>Please enter the username to show top 5 products</h2>
+            {%else%}
+            <h2>{{user}} username not found</h2>
 		{%endif%}
             
         </div>
