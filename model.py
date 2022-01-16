@@ -10,7 +10,11 @@ def predict_sentiment(reviews):
     model = pickle.load(open('final_model.sav','rb'))
     y_pred= model.predict(x_input)
     y_pred_series = pd.Series(y_pred)
-    positive_percent = round(y_pred_series.value_counts(normalize=True),2)['Positive']
+    out = round(y_pred_series.value_counts(normalize=True),2)
+    try:
+        positive_percent = out['Positive']
+    except:
+        positive_percent = 0.0
     return positive_percent
 
 

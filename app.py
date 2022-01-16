@@ -9,8 +9,8 @@ def home():
     user=""
     if request.method == 'POST':
         user = request.form["userid"]
-        if user.lower() in all_users:
-            data=recommend_product(user.lower())
+        if user in all_users:
+            data=recommend_product(user)
         else:
             return render_template("index.html", len=len(data), products=data, user=user, flag=False, flag1=True)
     return render_template("index.html", len=len(data),products=data, user=user,flag=False,flag1=False)
@@ -23,5 +23,5 @@ def userList():
 
 
 if __name__ == '__main__' :
-    app.run()
+    app.run(debug=True)
 
